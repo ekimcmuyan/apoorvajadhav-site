@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apoorva Jadhav, Ph.D. — Demographer, Strategist, Global Health Leader</title>
+<meta name="description" content="Apoorva Jadhav is a globally recognized demographer and policy strategist with 20 years of experience shaping population and development agendas. Carnegie Endowment scholar, G7 GEAC member, former USAID Senior Demographer.">
+<meta name="keywords" content="Apoorva Jadhav, demography, global health, population policy, USAID, G7, gender equality, reproductive health, demographic intelligence, Carnegie Endowment">
+<meta property="og:title" content="Apoorva Jadhav, Ph.D. — Demographer & Global Health Strategist">
+<meta property="og:description" content="Translating demographic trends and projections into the policies and investments that shape how nations plan for their people.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================
+   ZÜRICH — Swiss editorial aesthetic.
+   Clean grids, thin rules, restrained color.
+   The content is the design.
+   ========================================== */
+
+:root {
+  --terra: #c2633a;
+  --terra-light: #d4845a;
+  --terra-deep: #9e4a28;
+  --ink: #1a1a1a;
+  --ink-soft: #2e2e2e;
+  --text-body: #3a3a3a;
+  --text-secondary: #6e6e6e;
+  --text-caption: #999;
+  --paper: #faf8f5;
+  --paper-warm: #f5f1ec;
+  --rule: rgba(0, 0, 0, 0.1);
+  --rule-dark: rgba(255, 255, 255, 0.1);
+  --sage: #6d7e5e;
+  --sage-light: #8a9e76;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'Newsreader', Georgia, serif;
+  background: var(--paper);
+  color: var(--ink);
+  overflow-x: hidden;
+  line-height: 1.75;
+  font-optical-sizing: auto;
+}
+
+::selection { background: var(--terra); color: white; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* ==========================================
+   UTILITY — horizontal rules
+   ========================================== */
+.rule { border: none; border-top: 1px solid var(--rule); margin: 0; }
+.rule-thick { border: none; border-top: 2px solid var(--ink); margin: 0; }
+.rule-terra { border: none; border-top: 2px solid var(--terra); margin: 0; }
+
+/* ==========================================
+   LAYOUT — max-width container
+   ========================================== */
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+/* ==========================================
+   NAVIGATION
+   ========================================== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  transition: all 0.4s ease;
+}
+
+.nav-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 1.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: padding 0.4s ease;
+}
+
+.nav.scrolled {
+  background: rgba(250, 248, 245, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.nav.scrolled .nav-inner { padding: 0.8rem 3rem; }
+
+.nav-name {
+  font-family: 'Fraunces', serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--paper);
+  transition: color 0.4s;
+}
+
+.nav.scrolled .nav-name { color: var(--ink); }
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250, 248, 245, 0.6);
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--terra-light); }
+.nav.scrolled .nav-links a { color: var(--text-secondary); }
+.nav.scrolled .nav-links a:hover { color: var(--terra); }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 28px;
+  height: 18px;
+  position: relative;
+  z-index: 110;
+}
+.nav-toggle span {
+  display: block; width: 100%; height: 1.5px;
+  position: absolute; left: 0; transition: all 0.3s;
+  background: var(--paper);
+}
+.nav.scrolled .nav-toggle span { background: var(--ink); }
+.nav-toggle span:nth-child(1) { top: 0; }
+.nav-toggle span:nth-child(2) { top: 50%; }
+.nav-toggle span:nth-child(3) { bottom: 0; }
+.nav-toggle.active span:nth-child(1) { top: 50%; transform: rotate(45deg); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-toggle.active span:nth-child(3) { bottom: 50%; transform: rotate(-45deg); }
+
+/* ==========================================
+   HERO — Magazine profile opener
+   ========================================== */
+.hero {
+  background: var(--ink);
+  padding-top: 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grid {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 4rem 3rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: end;
+}
+
+.hero-content {
+  padding-bottom: 5rem;
+}
+
+.hero-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--terra-light);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.3s forwards;
+}
+
+.hero-name {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3.2rem, 6vw, 5.5rem);
+  font-weight: 300;
+  line-height: 0.92;
+  color: var(--paper);
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.5s forwards;
+}
+
+.hero-name em {
+  font-style: italic;
+  color: var(--terra-light);
+}
+
+.hero-degrees {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(250, 248, 245, 0.35);
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.7s forwards;
+}
+
+.hero-rule {
+  width: 50px;
+  height: 2px;
+  background: var(--terra);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.5s 0.8s forwards;
+}
+
+.hero-desc {
+  font-size: 1.15rem;
+  font-weight: 300;
+  line-height: 1.85;
+  color: rgba(250, 248, 245, 0.75);
+  max-width: 440px;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.9s forwards;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.25rem;
+  opacity: 0;
+  animation: fadeUp 0.6s 1.1s forwards;
+}
+
+.hero-photo {
+  position: relative;
+  align-self: stretch;
+  overflow: hidden;
+  min-height: 520px;
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  opacity: 0;
+  animation: imgReveal 1s 0.4s forwards;
+}
+
+/* Subtle fade at bottom so photo doesn't hard-cut */
+.hero-photo::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to top, var(--ink), transparent);
+  pointer-events: none;
+}
+
+/* Hero bottom affiliations bar */
+.hero-affiliations {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 1.75rem 3rem;
+  display: flex;
+  gap: 3rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  opacity: 0;
+  animation: fadeIn 0.8s 1.4s forwards;
+}
+
+.hero-aff {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(250, 248, 245, 0.35);
+}
+
+.hero-aff strong {
+  display: block;
+  font-size: 0.58rem;
+  font-weight: 500;
+  color: var(--terra-light);
+  margin-bottom: 0.15rem;
+}
+
+/* ==========================================
+   BUTTONS
+   ========================================== */
+.btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.8rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-terra {
+  background: var(--terra);
+  color: white;
+}
+.btn-terra:hover {
+  background: var(--terra-deep);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--paper);
+  border: 1px solid rgba(250, 248, 245, 0.2);
+}
+.btn-outline:hover {
+  border-color: var(--terra);
+  color: var(--terra-light);
+}
+
+/* ==========================================
+   SECTION HEADINGS — newspaper style
+   ========================================== */
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin-bottom: 1rem;
+}
+
+.section-heading {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+}
+
+.section-heading em {
+  font-style: italic;
+  color: var(--terra);
+}
+
+/* ==========================================
+   ABOUT
+   ========================================== */
+.about {
+  padding: 6rem 0;
+}
+
+.about-header {
+  margin-bottom: 3.5rem;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 7fr 4fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.about-text {
+  font-size: 1.05rem;
+  color: var(--text-body);
+  line-height: 1.95;
+}
+
+.about-text p { margin-bottom: 1.25rem; }
+
+.about-text .hl {
+  color: var(--terra-deep);
+  font-weight: 500;
+}
+
+.about-sidebar {
+  border-top: 2px solid var(--ink);
+  padding-top: 1.75rem;
+}
+
+.sidebar-group {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.sidebar-group:last-child { border-bottom: none; }
+
+.sidebar-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.48rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin-bottom: 0.4rem;
+}
+
+.sidebar-value {
+  font-family: 'Fraunces', serif;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.sidebar-detail {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+/* ==========================================
+   WRITING — Editorial table of contents
+   ========================================== */
+.writing {
+  padding: 6rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.writing-intro {
+  font-size: 1.05rem;
+  color: var(--text-body);
+  max-width: 560px;
+  line-height: 1.85;
+  margin-bottom: 3.5rem;
+}
+
+/* Featured article — newspaper lead story */
+.article-lead {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 2.5rem;
+  transition: opacity 0.3s;
+}
+
+.article-lead:hover { opacity: 0.85; }
+
+.article-lead-img {
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 4 / 3;
+}
+
+.article-lead-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.article-lead-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.art-venue {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.52rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin-bottom: 0.75rem;
+}
+
+.art-title {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+}
+
+.article-lead .art-title {
+  font-size: 1.65rem;
+  color: var(--ink);
+}
+
+.art-abstract {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.art-cta {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--terra);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: gap 0.3s;
+}
+
+a:hover .art-cta { gap: 0.7rem; }
+
+/* Three-column article cards */
+.articles-trio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 0;
+}
+
+.article-card {
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.3s;
+}
+
+.article-card:hover { opacity: 0.8; }
+
+.article-card-img {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  background: var(--paper-warm);
+}
+
+.article-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.article-card-img .img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.35);
+}
+
+.article-card-img .img-placeholder.bg-sage { background: var(--sage); }
+.article-card-img .img-placeholder.bg-umber { background: #6e5040; }
+
+.article-card .art-title {
+  font-size: 1.05rem;
+  color: var(--ink);
+  flex-grow: 1;
+}
+
+.article-card .art-abstract {
+  font-size: 0.82rem;
+  color: var(--text-caption);
+  margin-bottom: 1rem;
+}
+
+/* Compact article list — clean editorial index */
+.articles-index {
+  border-top: 1px solid var(--rule);
+}
+
+.article-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: baseline;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--rule);
+  transition: padding-left 0.3s, background 0.3s;
+}
+
+.article-row:hover {
+  padding-left: 0.75rem;
+  background: rgba(194, 99, 58, 0.02);
+}
+
+.article-row .art-venue { margin-bottom: 0.15rem; }
+
+.article-row .art-title {
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.article-row-date {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--text-caption);
+  white-space: nowrap;
+}
+
+/* ==========================================
+   SUBSTACK SECTION
+   ========================================== */
+.substack-section {
+  padding: 6rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.substack-section .section-label { color: var(--sage); }
+
+.substack-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+}
+
+.substack-header .section-heading { margin-bottom: 0; }
+
+.substack-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.sub-card {
+  border: 1px solid var(--rule);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: white;
+}
+.sub-card:hover {
+  border-color: var(--terra);
+}
+
+.sub-card-img {
+  height: 140px;
+  overflow: hidden;
+}
+
+.sub-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.sub-card:hover .sub-card-img img { transform: scale(1.03); }
+
+.sub-card-body {
+  padding: 1.25rem;
+}
+
+.sub-card-country {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.48rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 0.5rem;
+}
+
+.sub-card-title {
+  font-family: 'Fraunces', serif;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+
+.sub-card-snippet {
+  font-size: 0.78rem;
+  color: var(--text-caption);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ==========================================
+   EXPERIENCE — Timeline
+   ========================================== */
+.experience {
+  background: var(--ink);
+  padding: 6rem 0;
+}
+
+.experience .section-label { color: var(--terra-light); }
+.experience .section-heading { color: var(--paper); }
+.experience .section-heading em { color: var(--terra-light); }
+
+.timeline {
+  max-width: 800px;
+}
+
+.tl-item {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 2.5rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tl-item.visible { opacity: 1; transform: translateY(0); }
+
+.tl-year {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  color: var(--terra-light);
+  padding-top: 0.3rem;
+}
+
+.tl-role {
+  font-family: 'Fraunces', serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--paper);
+  margin-bottom: 0.15rem;
+}
+
+.tl-org {
+  font-size: 0.82rem;
+  color: var(--terra-light);
+  margin-bottom: 0.5rem;
+}
+
+.tl-desc {
+  font-size: 0.82rem;
+  color: rgba(250, 248, 245, 0.4);
+  line-height: 1.75;
+}
+
+/* ==========================================
+   ADVISORY
+   ========================================== */
+.advisory {
+  padding: 6rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.advisory .section-label { color: var(--sage); }
+
+.advisory-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.advisory-col-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--ink);
+}
+
+.adv-item {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--rule);
+  transition: padding-left 0.3s;
+}
+.adv-item:hover { padding-left: 0.5rem; }
+
+.adv-title {
+  font-family: 'Newsreader', serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.adv-org {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  color: var(--text-caption);
+}
+
+/* ==========================================
+   CONTACT
+   ========================================== */
+.contact {
+  background: var(--ink);
+  padding: 5rem 0;
+}
+
+.contact .section-label { color: var(--terra-light); }
+.contact .section-heading { color: var(--paper); }
+.contact .section-heading em { color: var(--terra-light); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+}
+
+.contact-text {
+  font-size: 1rem;
+  color: rgba(250, 248, 245, 0.45);
+  line-height: 1.85;
+}
+
+.contact-list {
+  list-style: none;
+}
+
+.contact-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.contact-list a {
+  font-family: 'Newsreader', serif;
+  font-size: 0.92rem;
+  color: var(--paper);
+  transition: color 0.3s;
+}
+.contact-list a:hover { color: var(--terra-light); }
+
+.contact-list .type {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.48rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(250, 248, 245, 0.3);
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+.footer {
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 1.25rem 3rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-text {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.15em;
+  color: rgba(250, 248, 245, 0.25);
+}
+
+/* ==========================================
+   ANIMATIONS — understated
+   ========================================== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes imgReveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+@media (max-width: 1100px) {
+  .container { padding: 0 2rem; }
+  .nav-inner { padding: 1.25rem 2rem; }
+  .nav.scrolled .nav-inner { padding: 0.75rem 2rem; }
+  .hero-grid { padding: 3rem 2rem 0; gap: 3rem; }
+  .hero-affiliations { padding: 1.5rem 2rem; }
+  .about, .writing, .substack-section, .advisory { padding: 5rem 0; }
+  .about-layout { grid-template-columns: 1fr; gap: 3rem; }
+  .articles-trio { grid-template-columns: 1fr 1fr; }
+  .article-lead { grid-template-columns: 1fr; }
+  .substack-grid { grid-template-columns: 1fr 1fr; }
+  .advisory-cols { grid-template-columns: 1fr; gap: 2.5rem; }
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 1.5rem; }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    padding: 2rem 1.5rem 0;
+    gap: 0;
+  }
+  .hero-content { padding-bottom: 3rem; order: 2; }
+  .hero-photo {
+    order: 1;
+    min-height: 45vh;
+    max-height: 50vh;
+  }
+  .hero-affiliations { display: none; }
+
+  .nav-inner { padding: 1rem 1.5rem; }
+  .nav.scrolled .nav-inner { padding: 0.75rem 1.5rem; }
+  .nav-links {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(26, 26, 26, 0.97);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    z-index: 105;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { font-size: 0.8rem; color: var(--paper); }
+  .nav-toggle { display: block; }
+
+  .about, .writing, .substack-section, .advisory { padding: 4rem 0; }
+  .experience, .contact { padding: 4rem 0; }
+  .articles-trio { grid-template-columns: 1fr; }
+  .substack-grid { grid-template-columns: 1fr 1fr; }
+  .article-row { grid-template-columns: 1fr; gap: 0.25rem; }
+  .hero-actions { flex-direction: column; }
+  .btn { justify-content: center; }
+  .footer-inner { padding: 1.25rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  .substack-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+
+  .tl-item { grid-template-columns: 1fr; gap: 0.35rem; }
+}
+
+@media (max-width: 500px) {
+  .substack-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- =================== NAV =================== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-name">Apoorva Jadhav, Ph.D., MPH</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#newsletter">Newsletter</a></li>
+      <li><a href="#experience">Career</a></li>
+      <li><a href="#advisory">Advisory</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- =================== HERO =================== -->
+<section class="hero" id="hero">
+  <div class="hero-grid">
+    <div class="hero-content">
+      <div class="hero-label">Demographer &middot; Writer &middot; Policy Advisor</div>
+      <h1 class="hero-name">
+        Apoorva<br><em>Jadhav</em>
+      </h1>
+      <div class="hero-degrees">Ph.D. &middot; MPH</div>
+      <div class="hero-rule"></div>
+      <p class="hero-desc">
+        I study how populations change, and what that means for the people living through it.
+        Demography is not just data. It is the story of who gets born, who survives, and who gets counted.
+      </p>
+      <div class="hero-actions">
+        <a href="#writing" class="btn btn-terra">Read My Work</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="headshot.jpg" alt="Dr. Apoorva Jadhav">
+    </div>
+  </div>
+  <div class="hero-affiliations">
+    <div class="hero-aff"><strong>Carnegie</strong>Nonresident Scholar</div>
+    <div class="hero-aff"><strong>G7 GEAC</strong>Advisory Council</div>
+    <div class="hero-aff"><strong>PRB</strong>Senior Fellow</div>
+    <div class="hero-aff"><strong>Gates Institute</strong>Johns Hopkins</div>
+  </div>
+</section>
+
+<!-- =================== ABOUT =================== -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-header reveal">
+      <div class="section-label">About</div>
+      <h2 class="section-heading">Where data meets <em>human dignity</em></h2>
+    </div>
+    <div class="about-layout">
+      <div class="about-text reveal">
+        <p>
+          I'm a demographer. That means I study <span class="hl">how populations change</span>&mdash;who
+          is being born, who is dying, who is moving, and what all of it means for
+          the societies living through these shifts. I've spent twenty years turning that
+          research into policy that actually reaches people.
+        </p>
+        <p>
+          For eight years at <span class="hl">USAID</span>, I was the agency's chief
+          demographic expert. I helped manage a $350 million portfolio of censuses and surveys
+          across 23 countries, participated in the U.S. delegation to the
+          UN Commission on Population and Development, and helped shape the U.S. position
+          on reproductive health and population at ICPD's 30th anniversary.
+        </p>
+        <p>
+          These days, I split my time between research, writing, and advising.
+          I'm a Nonresident Scholar at the <span class="hl">Carnegie Endowment for
+          International Peace</span> South Asia Program, where I'm leading a new initiative
+          interrogating India's "unfinished" demographic dividend. I'm also a Senior Fellow at the
+          <span class="hl">Population Reference Bureau</span> and a consultant to the
+          <span class="hl">William H. Gates Sr. Institute</span> at Johns Hopkins University's
+          Bloomberg School of Public Health. And I was recently invited to join the
+          <span class="hl">G7 Gender Equality Advisory Council</span>.
+        </p>
+        <p>
+          I also write a Substack called <em>Demography Matters</em>, where I try to make
+          the case, one country at a time, that population data is not an abstraction.
+          It is the foundation of every policy decision that touches a human life.
+        </p>
+      </div>
+      <div class="about-sidebar reveal reveal-d2">
+        <div class="sidebar-group">
+          <div class="sidebar-label">Education</div>
+          <div class="sidebar-value">Ph.D. in Demography</div>
+          <div class="sidebar-detail">University of Pennsylvania</div>
+        </div>
+        <div class="sidebar-group">
+          <div class="sidebar-label">Education</div>
+          <div class="sidebar-value">MPH, Population &amp; Reproductive Health</div>
+          <div class="sidebar-detail">Emory University</div>
+        </div>
+        <div class="sidebar-group">
+          <div class="sidebar-label">Education</div>
+          <div class="sidebar-value">B.A. in Public Health</div>
+          <div class="sidebar-detail">Johns Hopkins University</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== WRITING =================== -->
+<section class="writing" id="writing">
+  <div class="container">
+    <div class="section-label reveal">Writing &amp; Speaking</div>
+    <h2 class="section-heading reveal">Things I've written <em>&amp; said</em></h2>
+    <p class="writing-intro reveal">
+      I write about the places where demographic data meets real life: low fertility panic, the politics of counting, and why the numbers we collect shape who gets resources and who doesn't.
+    </p>
+
+    <!-- Lead story -->
+    <a href="https://www.thinkglobalhealth.org/article/women-in-leadership-global-healths-missing-dose" target="_blank" rel="noopener" class="article-lead reveal">
+      <div class="article-lead-img">
+        <img src="https://build.thinkglobalhealth.org/wp-content/uploads/2026/03/2024-03-08T172755Z_609583717_RC2RH6A2RLTY_RTRMADP_3_WOMENS-DAY-UN.jpg" alt="Women in Leadership">
+      </div>
+      <div class="article-lead-body">
+        <div class="art-venue">Think Global Health &bull; March 2026</div>
+        <div class="art-title">Women in Leadership: Global Health's Missing Dose</div>
+        <div class="art-abstract">
+          Women compose 70% of the global health workforce but hold only 25% of senior leadership roles.
+          Research shows parliamentary gender quotas led to a 9&ndash;12% decline in maternal mortality,
+          while erectile dysfunction research received six times more funding than endometriosis research
+          despite affecting far fewer people. Closing the women's health gap could add $1 trillion annually
+          to global GDP by 2040.
+        </div>
+        <div class="art-cta">Read article <span>&rarr;</span></div>
+      </div>
+    </a>
+
+    <!-- Three cards -->
+    <div class="articles-trio">
+      <a href="https://www.prb.org/news/1-in-6-the-global-crisis-very-few-are-funding-and-why-we-should-be/" target="_blank" rel="noopener" class="article-card reveal">
+        <div class="article-card-img">
+          <img src="https://www.prb.org/wp-content/uploads/2026/01/Copy-of-web-article-thumbnails-19.png" alt="1 in 6: Infertility Crisis">
+        </div>
+        <div>
+          <div class="art-venue">Population Reference Bureau &bull; Nov 2025</div>
+          <div class="art-title">1 in 6: The Global Crisis Very Few Are Funding</div>
+          <div class="art-abstract">
+            Infertility affects one in six people globally yet receives minimal attention.
+            In countries without government ART financing, patients spend double their annual
+            income per treatment cycle.
+          </div>
+          <div class="art-cta">Read article <span>&rarr;</span></div>
+        </div>
+      </a>
+
+      <a href="https://onlinelibrary.wiley.com/doi/10.1111/sifp.70028" target="_blank" rel="noopener" class="article-card reveal reveal-d1">
+        <div class="article-card-img">
+          <img src="https://images.unsplash.com/photo-1666886573553-6548db92db79?w=800&h=500&fit=crop&q=80" alt="Health workers reviewing data on tablet">
+        </div>
+        <div>
+          <div class="art-venue">Studies in Family Planning &bull; 2025</div>
+          <div class="art-title">Moving Toward Better Measurement of Contraceptive Prevalence</div>
+          <div class="art-abstract">
+            Argues that contraceptive prevalence among unmarried women is most accurately
+            measured using a four-week sexual recency window&mdash;a standard used by DHS
+            and recently adopted by FP2030 and Track20.
+          </div>
+          <div class="art-cta">Read article <span>&rarr;</span></div>
+        </div>
+      </a>
+
+      <a href="https://www.ghspjournal.org/content/12/5/e2400127" target="_blank" rel="noopener" class="article-card reveal reveal-d2">
+        <div class="article-card-img">
+          <img src="https://images.unsplash.com/photo-1774504798113-a03e2aa24789?w=800&h=500&fit=crop&q=80" alt="Women gathered in community setting">
+        </div>
+        <div>
+          <div class="art-venue">Global Health: Science &amp; Practice &bull; Oct 2024</div>
+          <div class="art-title">Family Planning &amp; Progress Toward the SDGs: ICPD at 30</div>
+          <div class="art-abstract">
+            Commentary marking the 30th anniversary of ICPD. Presents USAID's
+            "Pathways to Progress" framework linking family planning to all five SDG themes.
+          </div>
+          <div class="art-cta">Read article <span>&rarr;</span></div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Editorial index -->
+    <div class="articles-index reveal">
+      <a href="https://webtv.un.org/en/asset/k11/k11yeugowi" target="_blank" rel="noopener" class="article-row">
+        <div>
+          <div class="art-venue">United Nations &bull; CPD59 Side Event</div>
+          <div class="art-title">Unpacking the Imperatives for Building Demographic Resilience</div>
+        </div>
+        <div class="article-row-date">Apr 2026</div>
+      </a>
+      <a href="https://www.ctiexchange.org/events/prb-challenging-low-fertility-panic-new-narrative-reproductive-health" target="_blank" rel="noopener" class="article-row">
+        <div>
+          <div class="art-venue">PRB Webinar &bull; Moderator</div>
+          <div class="art-title">Challenging the Low-Fertility Panic: A New Narrative for Reproductive Health</div>
+        </div>
+        <div class="article-row-date">Jun 2025</div>
+      </a>
+      <a href="https://www.wilsoncenter.org/event/population-and-development-21st-century" target="_blank" rel="noopener" class="article-row">
+        <div>
+          <div class="art-venue">Wilson Center &bull; World Population Day</div>
+          <div class="art-title">Population and Development in the 21st Century</div>
+        </div>
+        <div class="article-row-date">Jul 2024</div>
+      </a>
+      <a href="https://www.unfpa.org/updates/let%E2%80%99s-talk-demographic-diversity-and-sustainable-development" target="_blank" rel="noopener" class="article-row">
+        <div>
+          <div class="art-venue">UNFPA &bull; Panel</div>
+          <div class="art-title">Let's Talk Demographic Diversity and Sustainable Development</div>
+        </div>
+        <div class="article-row-date">Jun 2024</div>
+      </a>
+      <a href="https://webtv.un.org/en/asset/k1o/k1omsfx3oh" target="_blank" rel="noopener" class="article-row">
+        <div>
+          <div class="art-venue">United Nations &bull; CPD57</div>
+          <div class="art-title">Statement to the UN Commission on Population &amp; Development</div>
+        </div>
+        <div class="article-row-date">May 2024</div>
+      </a>
+      <a href="https://gatesinstitute.org/2024/01/dd-luminaries-series-january-2024/" target="_blank" rel="noopener" class="article-row">
+        <div>
+          <div class="art-venue">Gates Sr. Institute &bull; Luminaries Series</div>
+          <div class="art-title">Population Age Structure Changes in Sub-Saharan Africa</div>
+        </div>
+        <div class="article-row-date">Jan 2024</div>
+      </a>
+      <a href="https://www.linkedin.com/pulse/population-data-underutilized-link-between-humanitarian-development/" target="_blank" rel="noopener" class="article-row">
+        <div>
+          <div class="art-venue">LinkedIn &bull; Article</div>
+          <div class="art-title">Population Data: The Underutilized Link Between Humanitarian and Development Assistance</div>
+        </div>
+        <div class="article-row-date">Jul 2023</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =================== SUBSTACK / NEWSLETTER =================== -->
+<section class="substack-section" id="newsletter">
+  <div class="container">
+    <div class="substack-header">
+      <div>
+        <div class="section-label reveal">Newsletter</div>
+        <h2 class="section-heading reveal">Demography <em>Matters</em></h2>
+      </div>
+      <a href="https://apoorvajadhav.substack.com/" target="_blank" rel="noopener" class="btn btn-terra reveal">Subscribe on Substack</a>
+    </div>
+    <p class="writing-intro reveal" style="margin-top:-1.5rem; margin-bottom:2.5rem;">
+      I'm writing my way through the world, one country at a time, exploring what demography tells us about how societies function, who they leave behind, and what comes next. Each piece pairs a country with a core demographic concept. Here are the most recent.
+    </p>
+
+    <div class="substack-grid">
+      <a href="https://apoorvajadhav.substack.com/p/week-13-china" target="_blank" rel="noopener" class="sub-card reveal">
+        <div class="sub-card-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/26a46a42-4eaf-4455-9a41-ee57bf0f1fab_1200x1352.jpeg" alt="China" onerror="this.parentElement.innerHTML='<div style=\'height:100%;background:var(--ink);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.35);font-family:Fraunces,serif;font-style:italic;font-size:1.3rem\'>China</div>'"></div>
+        <div class="sub-card-body">
+          <div class="sub-card-country">Group 1 &bull; China</div>
+          <div class="sub-card-title">The Country That Already Peaked</div>
+          <div class="sub-card-snippet">Births in 2025 fell to 7.9 million, comparable to 1738. The 4-2-1 problem, leftover men, lying flat, and whether robots can replace a shrinking workforce.</div>
+        </div>
+      </a>
+      <a href="https://apoorvajadhav.substack.com/p/week-14-iran" target="_blank" rel="noopener" class="sub-card reveal reveal-d1">
+        <div class="sub-card-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/cd3b16da-ce95-47e4-a3a7-3180e1b9470a_1000x1000.webp" alt="Iran" onerror="this.parentElement.innerHTML='<div style=\'height:100%;background:var(--terra);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.35);font-family:Fraunces,serif;font-style:italic;font-size:1.3rem\'>Iran</div>'"></div>
+        <div class="sub-card-body">
+          <div class="sub-card-country">Group 2 &bull; Iran</div>
+          <div class="sub-card-title">Water Bankruptcy and the Fastest Fertility Decline Ever Recorded</div>
+          <div class="sub-card-snippet">Iran's TFR fell 70% in 15 years, outpacing even China's decline. A growing population is colliding with a country running out of water.</div>
+        </div>
+      </a>
+      <a href="https://apoorvajadhav.substack.com/p/week-11-korea" target="_blank" rel="noopener" class="sub-card reveal reveal-d2">
+        <div class="sub-card-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/01588fbf-132d-4190-be08-811251374231_400x300.webp" alt="South Korea" onerror="this.parentElement.innerHTML='<div style=\'height:100%;background:var(--sage);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.35);font-family:Fraunces,serif;font-style:italic;font-size:1.3rem\'>South Korea</div>'"></div>
+        <div class="sub-card-body">
+          <div class="sub-card-country">Fertility &bull; South Korea</div>
+          <div class="sub-card-title">The World's Lowest Fertility and the 4B Movement</div>
+          <div class="sub-card-snippet">TFR of 0.72. $200 billion spent trying to raise it. Hagwons, housing, and why Korean women are refusing to participate.</div>
+        </div>
+      </a>
+      <a href="https://apoorvajadhav.substack.com/p/week-10-mexico" target="_blank" rel="noopener" class="sub-card reveal reveal-d3">
+        <div class="sub-card-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/b8274904-b2f4-437a-ad07-e7cc28682314_2000x1400.webp" alt="Mexico" onerror="this.parentElement.innerHTML='<div style=\'height:100%;background:#6e5040;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.35);font-family:Fraunces,serif;font-style:italic;font-size:1.3rem\'>Mexico</div>'"></div>
+        <div class="sub-card-body">
+          <div class="sub-card-country">Immigration &bull; Mexico</div>
+          <div class="sub-card-title">Five Myths About the World's Largest Migration Corridor</div>
+          <div class="sub-card-snippet">Mexican migration to the U.S. is declining, not surging. The data tells a story that rarely makes it into the news cycle.</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =================== EXPERIENCE =================== -->
+<section class="experience" id="experience">
+  <div class="container">
+    <div class="section-label reveal">Career</div>
+    <h2 class="section-heading reveal">Current appointments <em>&amp; experience</em></h2>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">2026</div>
+        <div>
+          <div class="tl-role">Nonresident Scholar</div>
+          <div class="tl-org">Carnegie Endowment for International Peace, South Asia Program</div>
+          <div class="tl-desc">I'm leading a new initiative on India's "unfinished" demographic dividend, questioning the standard narrative with a harder look at caste, inequality, and regional variation.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2026</div>
+        <div>
+          <div class="tl-role">Member, G7 Gender Equality Advisory Council</div>
+          <div class="tl-org">French Presidency of the G7</div>
+          <div class="tl-desc">Invited by President Macron's office to advise on demographic challenges and the conditions for chosen, fulfilling parenthood, as one of approximately 20 experts worldwide.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2025&ndash;Pres.</div>
+        <div>
+          <div class="tl-role">Senior Fellow</div>
+          <div class="tl-org">Population Reference Bureau, Washington, D.C.</div>
+          <div class="tl-desc">Writing and speaking on low fertility, population aging, and the politics of demographic data. I moderate PRB's "Smaller World" webinar series and advise policymakers globally.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2025&ndash;Pres.</div>
+        <div>
+          <div class="tl-role">Consultant, Demographic Futures</div>
+          <div class="tl-org">William H. Gates Sr. Institute, Johns Hopkins University</div>
+          <div class="tl-desc">Building the "Demographic Futures" strategy, curating ministerial roundtables for the 2025 International Family Planning Conference, and forging partnerships with African institutions.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2017&ndash;2025</div>
+        <div>
+          <div class="tl-role">Senior Demographer &amp; Statistician</div>
+          <div class="tl-org">USAID, Bureau for Global Health</div>
+          <div class="tl-desc">This was the job that shaped me. I was the U.S. Government's chief demographer, directing the Demographic and Health Surveys ($260M) and international censuses ($90M), and leading the U.S. delegation to the UN Commission on Population and Development.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2014&ndash;2017</div>
+        <div>
+          <div class="tl-role">NIA Postdoctoral Fellow</div>
+          <div class="tl-org">University of Michigan, Ann Arbor</div>
+          <div class="tl-desc">National Institute on Aging fellowship, working on the Health and Retirement Study and cross-continental research on aging in India.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== ADVISORY =================== -->
+<section class="advisory" id="advisory">
+  <div class="container">
+    <div class="section-label reveal">Service &amp; Advisory</div>
+    <h2 class="section-heading reveal">Boards, panels, <em>&amp; tables I sit at</em></h2>
+
+    <div class="advisory-cols">
+      <div class="reveal">
+        <h3 class="advisory-col-title">Advisory &amp; Expert Roles</h3>
+        <div class="adv-item">
+          <div class="adv-title">Technical Advisory Group, Family Planning Impact Lab</div>
+          <div class="adv-org">Guttmacher Institute &bull; 2025&ndash;Present</div>
+        </div>
+        <div class="adv-item">
+          <div class="adv-title">Expert Advisory Committee, Youth Reproductive Choices Survey</div>
+          <div class="adv-org">UNFPA &bull; 2025&ndash;Present</div>
+        </div>
+        <div class="adv-item">
+          <div class="adv-title">Task Force on Sustainable Demographic &amp; Health Surveys</div>
+          <div class="adv-org">UN Inter-Secretariat Working Group &bull; 2025&ndash;Present</div>
+        </div>
+      </div>
+      <div class="reveal reveal-d2">
+        <h3 class="advisory-col-title">Global Representation</h3>
+        <div class="adv-item">
+          <div class="adv-title">U.S. Delegate, UN Commission on Population &amp; Development</div>
+          <div class="adv-org">United Nations, New York &bull; 2023&ndash;2024</div>
+        </div>
+        <div class="adv-item">
+          <div class="adv-title">USAID Technical Lead, ICPD30 Commemorations</div>
+          <div class="adv-org">USAID &bull; Dhaka, 2023</div>
+        </div>
+        <div class="adv-item">
+          <div class="adv-title">Panelist, Population &amp; Development in the 21st Century</div>
+          <div class="adv-org">Wilson Center &bull; Washington, D.C. &bull; 2024</div>
+        </div>
+        <div class="adv-item">
+          <div class="adv-title">Panelist, Demographic Diversity &amp; Sustainable Development</div>
+          <div class="adv-org">UNFPA &bull; 2024</div>
+        </div>
+        <div class="adv-item">
+          <div class="adv-title">Expert Group Meeting, COVID-19 Impact on Mortality</div>
+          <div class="adv-org">United Nations &bull; 2022</div>
+        </div>
+        <div class="adv-item">
+          <div class="adv-title">Technical Consultation, Estimates of Infertility Prevalence</div>
+          <div class="adv-org">World Health Organization &bull; 2021</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== CONTACT =================== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="section-label">Connect</div>
+        <h2 class="section-heading">I'd love to <em>hear from you</em></h2>
+        <p class="contact-text">
+          If you're working on something where demography
+          matters&mdash;and it almost always does&mdash;let's talk.
+        </p>
+      </div>
+      <div class="reveal reveal-d2">
+        <ul class="contact-list">
+          <li><a href="mailto:apoorva.jadhav@gmail.com">apoorva.jadhav@gmail.com</a><span class="type">Email</span></li>
+          <li><a href="https://apoorvajadhav.substack.com/" target="_blank" rel="noopener">Demography Matters</a><span class="type">Substack</span></li>
+          <li><a href="https://www.linkedin.com/in/apoorva-jadhav-99719777/" target="_blank" rel="noopener">LinkedIn</a><span class="type">Profile</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-text">&copy; 2026 Apoorva Jadhav, Ph.D.</div>
+    <div class="footer-text">Bellevue, Washington</div>
+  </div>
+</footer>
+
+<!-- =================== SCRIPTS =================== -->
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
+
+// Mobile menu
+const toggle = document.getElementById('navToggle');
+const links = document.getElementById('navLinks');
+toggle.addEventListener('click', () => { toggle.classList.toggle('active'); links.classList.toggle('open'); });
+links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { toggle.classList.remove('active'); links.classList.remove('open'); }));
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal, .tl-item').forEach(el => obs.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) window.scrollTo({ top: t.offsetTop - 70, behavior: 'smooth' });
+  });
+});
+</script>
+
+</body>
+</html>
