@@ -424,7 +424,7 @@ img { max-width: 100%; display: block; }
 }
 
 /* ==========================================
-   WRITING — Editorial table of contents
+   WRITING — Editorial carousel
    ========================================== */
 .writing {
   padding: 6rem 0;
@@ -436,40 +436,10 @@ img { max-width: 100%; display: block; }
   color: var(--text-body);
   max-width: 560px;
   line-height: 1.85;
-  margin-bottom: 3.5rem;
+  margin-bottom: 2.75rem;
 }
 
-/* Featured article — newspaper lead story */
-.article-lead {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  padding-bottom: 3rem;
-  border-bottom: 1px solid var(--rule);
-  margin-bottom: 2.5rem;
-  transition: opacity 0.3s;
-}
-
-.article-lead:hover { opacity: 0.85; }
-
-.article-lead-img {
-  overflow: hidden;
-  position: relative;
-  aspect-ratio: 4 / 3;
-}
-
-.article-lead-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.article-lead-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
+/* Shared editorial typography */
 .art-venue {
   font-family: 'DM Mono', monospace;
   font-size: 0.52rem;
@@ -485,11 +455,6 @@ img { max-width: 100%; display: block; }
   font-weight: 500;
   line-height: 1.3;
   margin-bottom: 0.75rem;
-}
-
-.article-lead .art-title {
-  font-size: 1.65rem;
-  color: var(--ink);
 }
 
 .art-abstract {
@@ -513,65 +478,259 @@ img { max-width: 100%; display: block; }
 
 a:hover .art-cta { gap: 0.7rem; }
 
-/* Three-column article cards */
-.articles-trio {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+/* Carousel control bar */
+.carousel-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
   gap: 2rem;
-  padding-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
   border-bottom: 1px solid var(--rule);
-  margin-bottom: 0;
 }
 
-.article-card {
+.carousel-meta {
   display: flex;
   flex-direction: column;
-  transition: opacity 0.3s;
+  gap: 0.4rem;
 }
 
-.article-card:hover { opacity: 0.8; }
-
-.article-card-img {
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  margin-bottom: 1.25rem;
-  background: var(--paper-warm);
+.carousel-count {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.55rem;
+  color: var(--terra);
+  letter-spacing: 0.01em;
+  line-height: 1;
 }
 
-.article-card-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.carousel-count .total { color: var(--text-caption); }
+
+.carousel-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-caption);
 }
 
-.article-card-img .img-placeholder {
-  width: 100%;
-  height: 100%;
+.carousel-nav { display: flex; gap: 0.55rem; }
+
+.carousel-btn {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--rule);
+  background: transparent;
+  color: var(--ink);
+  font-size: 1rem;
+  font-family: 'DM Mono', monospace;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Fraunces', serif;
-  font-size: 1.2rem;
-  font-style: italic;
-  color: rgba(255,255,255,0.35);
+  transition: border-color 0.3s, color 0.3s, background 0.3s, transform 0.3s;
 }
 
-.article-card-img .img-placeholder.bg-sage { background: var(--sage); }
-.article-card-img .img-placeholder.bg-umber { background: #6e5040; }
+.carousel-btn:hover:not(:disabled) {
+  border-color: var(--terra);
+  color: var(--terra);
+  transform: translateY(-2px);
+}
 
-.article-card .art-title {
-  font-size: 1.05rem;
+.carousel-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+/* Carousel viewport */
+.writing-carousel {
+  position: relative;
+  margin-bottom: 4.5rem;
+}
+
+.writing-track {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 1rem 0 2rem;
+  margin: -1rem 0 -2rem;
+}
+
+.writing-track::-webkit-scrollbar { display: none; }
+
+.writing-card {
+  flex: 0 0 clamp(280px, 31vw, 360px);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.4s cubic-bezier(.2,.8,.2,1),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
+}
+
+.writing-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--terra);
+  box-shadow: 0 22px 50px -28px rgba(30, 20, 16, 0.45);
+}
+
+.writing-card-img {
+  aspect-ratio: 4 / 3;
+  position: relative;
+  overflow: hidden;
+  background: var(--paper-warm);
+}
+
+.writing-card-img > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.writing-card:hover .writing-card-img > img {
+  transform: scale(1.05);
+}
+
+.writing-card-img .img-placeholder {
+  position: absolute; inset: 0;
+  padding: 1.4rem 1.4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background:
+    radial-gradient(ellipse at 75% 25%, rgba(255,255,255,0.10), transparent 55%),
+    var(--bg, #8c4023);
+}
+
+.writing-card-img .img-placeholder::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.85' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.writing-card-img .img-placeholder > * { position: relative; z-index: 1; }
+
+.placeholder-mark {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(247, 241, 230, 0.78);
+}
+
+.placeholder-quote {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.4rem;
+  line-height: 1.25;
+  color: rgba(247, 241, 230, 0.96);
+  max-width: 16ch;
+}
+
+.writing-card-img.bg-terra { --bg: #8c4023; }
+.writing-card-img.bg-sage  { --bg: #4d5b41; }
+.writing-card-img.bg-umber { --bg: #5d4231; }
+.writing-card-img.bg-earth { --bg: #2c1e14; }
+
+.card-date-ribbon {
+  position: absolute;
+  top: 0; right: 0;
+  z-index: 2;
+  background: var(--paper);
   color: var(--ink);
+  padding: 0.55rem 0.85rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.card-new-tag {
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 2;
+  background: var(--terra);
+  color: var(--paper);
+  padding: 0.55rem 0.85rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.writing-card-body {
+  padding: 1.4rem 1.5rem 1.6rem;
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
 }
 
-.article-card .art-abstract {
-  font-size: 0.82rem;
-  color: var(--text-caption);
-  margin-bottom: 1rem;
+.writing-card .art-venue { margin-bottom: 0.7rem; }
+
+.writing-card .art-title {
+  font-size: 1.08rem;
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 0.85rem;
 }
 
-/* Compact article list — clean editorial index */
+.writing-card .art-abstract {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  flex-grow: 1;
+  margin-bottom: 1.2rem;
+}
+
+.writing-card .art-cta { margin-top: auto; }
+
+/* Talks divider — separates carousel from events list */
+.talks-divider {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  margin: 0 0 1rem;
+}
+
+.talks-divider .talks-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-caption);
+  white-space: nowrap;
+}
+
+.talks-divider .talks-rule {
+  flex-grow: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.talks-divider .talks-count {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* Compact article list — clean editorial index (talks & events) */
 .articles-index {
   border-top: 1px solid var(--rule);
 }
@@ -588,7 +747,7 @@ a:hover .art-cta { gap: 0.7rem; }
 
 .article-row:hover {
   padding-left: 0.75rem;
-  background: rgba(194, 99, 58, 0.02);
+  background: rgba(194, 99, 58, 0.04);
 }
 
 .article-row .art-venue { margin-bottom: 0.15rem; }
@@ -900,8 +1059,6 @@ a:hover .art-cta { gap: 0.7rem; }
   .hero-affiliations { padding: 1.5rem 2rem; }
   .about, .writing, .substack-section, .advisory { padding: 5rem 0; }
   .about-layout { grid-template-columns: 1fr; gap: 3rem; }
-  .articles-trio { grid-template-columns: 1fr 1fr; }
-  .article-lead { grid-template-columns: 1fr; }
   .substack-grid { grid-template-columns: 1fr 1fr; }
   .advisory-cols { grid-template-columns: 1fr; gap: 2.5rem; }
   .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
@@ -941,9 +1098,10 @@ a:hover .art-cta { gap: 0.7rem; }
 
   .about, .writing, .substack-section, .advisory { padding: 4rem 0; }
   .experience, .contact { padding: 4rem 0; }
-  .articles-trio { grid-template-columns: 1fr; }
   .substack-grid { grid-template-columns: 1fr 1fr; }
   .article-row { grid-template-columns: 1fr; gap: 0.25rem; }
+  .carousel-bar { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .carousel-nav { align-self: flex-end; }
   .hero-actions { flex-direction: column; }
   .btn { justify-content: center; }
   .footer-inner { padding: 1.25rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
@@ -1088,76 +1246,129 @@ a:hover .art-cta { gap: 0.7rem; }
       I write about the places where demographic evidence meets policy decisions: low fertility panic, the politics of counting, and why the data we collect determines who gets resources, investment, and attention&mdash;and who doesn't.
     </p>
 
-    <!-- Lead story -->
-    <a href="https://www.thinkglobalhealth.org/article/women-in-leadership-global-healths-missing-dose" target="_blank" rel="noopener" class="article-lead reveal">
-      <div class="article-lead-img">
-        <img src="https://build.thinkglobalhealth.org/wp-content/uploads/2026/03/2024-03-08T172755Z_609583717_RC2RH6A2RLTY_RTRMADP_3_WOMENS-DAY-UN.jpg" alt="Women in Leadership">
+    <!-- Carousel control bar -->
+    <div class="carousel-bar reveal">
+      <div class="carousel-meta">
+        <div class="carousel-count"><span id="cCurrent">01</span><span class="total">&nbsp;/&nbsp;<span id="cTotal">06</span></span></div>
+        <div class="carousel-label">Recent essays &amp; commentary</div>
       </div>
-      <div class="article-lead-body">
-        <div class="art-venue">Think Global Health &bull; March 2026</div>
-        <div class="art-title">Women in Leadership: Global Health's Missing Dose</div>
-        <div class="art-abstract">
-          Women compose 70% of the global health workforce but hold only 25% of senior leadership roles.
-          Research shows parliamentary gender quotas led to a 9&ndash;12% decline in maternal mortality,
-          while erectile dysfunction research received six times more funding than endometriosis research
-          despite affecting far fewer people. Closing the women's health gap could add $1 trillion annually
-          to global GDP by 2040.
-        </div>
-        <div class="art-cta">Read article <span>&rarr;</span></div>
+      <div class="carousel-nav">
+        <button class="carousel-btn" data-dir="prev" aria-label="Previous article">&larr;</button>
+        <button class="carousel-btn" data-dir="next" aria-label="Next article">&rarr;</button>
       </div>
-    </a>
-
-    <!-- Three cards -->
-    <div class="articles-trio">
-      <a href="https://www.prb.org/news/1-in-6-the-global-crisis-very-few-are-funding-and-why-we-should-be/" target="_blank" rel="noopener" class="article-card reveal">
-        <div class="article-card-img">
-          <img src="https://www.prb.org/wp-content/uploads/2026/01/Copy-of-web-article-thumbnails-19.png" alt="1 in 6: Infertility Crisis">
-        </div>
-        <div>
-          <div class="art-venue">Population Reference Bureau &bull; Nov 2025</div>
-          <div class="art-title">1 in 6: The Global Crisis Very Few Are Funding</div>
-          <div class="art-abstract">
-            Infertility affects one in six people globally yet receives minimal attention.
-            In countries without government ART financing, patients spend double their annual
-            income per treatment cycle.
-          </div>
-          <div class="art-cta">Read article <span>&rarr;</span></div>
-        </div>
-      </a>
-
-      <a href="https://onlinelibrary.wiley.com/doi/10.1111/sifp.70028" target="_blank" rel="noopener" class="article-card reveal reveal-d1">
-        <div class="article-card-img">
-          <img src="https://images.unsplash.com/photo-1666886573553-6548db92db79?w=800&h=500&fit=crop&q=80" alt="Health workers reviewing data on tablet">
-        </div>
-        <div>
-          <div class="art-venue">Studies in Family Planning &bull; 2025</div>
-          <div class="art-title">Moving Toward Better Measurement of Contraceptive Prevalence</div>
-          <div class="art-abstract">
-            Argues that contraceptive prevalence among unmarried women is most accurately
-            measured using a four-week sexual recency window&mdash;a standard used by DHS
-            and recently adopted by FP2030 and Track20.
-          </div>
-          <div class="art-cta">Read article <span>&rarr;</span></div>
-        </div>
-      </a>
-
-      <a href="https://www.ghspjournal.org/content/12/5/e2400127" target="_blank" rel="noopener" class="article-card reveal reveal-d2">
-        <div class="article-card-img">
-          <img src="https://images.unsplash.com/photo-1774504798113-a03e2aa24789?w=800&h=500&fit=crop&q=80" alt="Women gathered in community setting">
-        </div>
-        <div>
-          <div class="art-venue">Global Health: Science &amp; Practice &bull; Oct 2024</div>
-          <div class="art-title">Family Planning &amp; Progress Toward the SDGs: ICPD at 30</div>
-          <div class="art-abstract">
-            Commentary marking the 30th anniversary of ICPD. Presents USAID's
-            "Pathways to Progress" framework linking family planning to all five SDG themes.
-          </div>
-          <div class="art-cta">Read article <span>&rarr;</span></div>
-        </div>
-      </a>
     </div>
 
-    <!-- Editorial index -->
+    <!-- Horizontal scroll carousel -->
+    <div class="writing-carousel reveal">
+      <div class="writing-track" id="writingTrack">
+
+        <!-- 1. Carnegie — India's Demographic Dividend (Apr 28, 2026, NEW) -->
+        <a href="https://carnegieendowment.org/research/2026/04/indias-demographic-dividend-is-a-test-of-governance" target="_blank" rel="noopener" class="writing-card">
+          <div class="writing-card-img">
+            <img src="https://assets.carnegieendowment.org/_/eyJrZXkiOiJpbWFnZXMvaW5kaWEtZGVtb2dyYXBoaWMtY2l0eS1pU3RvY2stMjE2NjI5MDIxNC5qcGcifQ==" alt="Crowded urban street in India at night">
+            <div class="card-new-tag">New</div>
+            <div class="card-date-ribbon">Apr 28, 2026</div>
+          </div>
+          <div class="writing-card-body">
+            <div class="art-venue">Carnegie Endowment &bull; Apr 2026</div>
+            <div class="art-title">India's Demographic Dividend Is a Test of Governance</div>
+            <div class="art-abstract">
+              India will host the world's largest working-age population through the 2040s, but the dividend is conditional. Whether the country converts demographic momentum into broad-based prosperity hinges on jobs, female labor force participation, and the quality of public investment&mdash;not on the size of the cohort itself.
+            </div>
+            <div class="art-cta">Read article <span>&rarr;</span></div>
+          </div>
+        </a>
+
+        <!-- 2. PRB — Three New Frontiers of the Mortality Paradigm (Apr 24, 2026, NEW) -->
+        <a href="https://www.prb.org/news/three-new-frontiers-of-the-mortality-paradigm/" target="_blank" rel="noopener" class="writing-card">
+          <div class="writing-card-img">
+            <img src="https://www.prb.org/wp-content/uploads/2026/04/Copy-of-web-article-thumbnails-2.png" alt="Illustration of a head-shaped tree, half bare branches and half green leaves, with a figure on a ladder">
+            <div class="card-new-tag">New</div>
+            <div class="card-date-ribbon">Apr 24, 2026</div>
+          </div>
+          <div class="writing-card-body">
+            <div class="art-venue">Population Reference Bureau &bull; Apr 2026</div>
+            <div class="art-title">Three New Frontiers of the Mortality Paradigm</div>
+            <div class="art-abstract">
+              For decades, mortality decline meant the survival of children. The next chapter looks different&mdash;rising cardiometabolic deaths in middle-income settings, climate-driven heat mortality, and stalled gains among adult men. A new framework for tracking what is actually killing people now.
+            </div>
+            <div class="art-cta">Read article <span>&rarr;</span></div>
+          </div>
+        </a>
+
+        <!-- 3. Think Global Health — Women in Leadership (Mar 2026) -->
+        <a href="https://www.thinkglobalhealth.org/article/women-in-leadership-global-healths-missing-dose" target="_blank" rel="noopener" class="writing-card">
+          <div class="writing-card-img">
+            <img src="https://build.thinkglobalhealth.org/wp-content/uploads/2026/03/2024-03-08T172755Z_609583717_RC2RH6A2RLTY_RTRMADP_3_WOMENS-DAY-UN.jpg" alt="Women in Leadership">
+            <div class="card-date-ribbon">Mar 2026</div>
+          </div>
+          <div class="writing-card-body">
+            <div class="art-venue">Think Global Health &bull; Mar 2026</div>
+            <div class="art-title">Women in Leadership: Global Health's Missing Dose</div>
+            <div class="art-abstract">
+              Women compose 70% of the global health workforce but hold only 25% of senior leadership roles. Parliamentary gender quotas led to a 9&ndash;12% decline in maternal mortality. Closing the women's health gap could add $1 trillion annually to global GDP by 2040.
+            </div>
+            <div class="art-cta">Read article <span>&rarr;</span></div>
+          </div>
+        </a>
+
+        <!-- 4. PRB — 1 in 6 (Nov 2025) -->
+        <a href="https://www.prb.org/news/1-in-6-the-global-crisis-very-few-are-funding-and-why-we-should-be/" target="_blank" rel="noopener" class="writing-card">
+          <div class="writing-card-img">
+            <img src="https://www.prb.org/wp-content/uploads/2026/01/Copy-of-web-article-thumbnails-19.png" alt="1 in 6: Infertility Crisis">
+            <div class="card-date-ribbon">Nov 2025</div>
+          </div>
+          <div class="writing-card-body">
+            <div class="art-venue">Population Reference Bureau &bull; Nov 2025</div>
+            <div class="art-title">1 in 6: The Global Crisis Very Few Are Funding</div>
+            <div class="art-abstract">
+              Infertility affects one in six people globally yet receives minimal attention. In countries without government ART financing, patients spend double their annual income per treatment cycle.
+            </div>
+            <div class="art-cta">Read article <span>&rarr;</span></div>
+          </div>
+        </a>
+
+        <!-- 5. Studies in Family Planning (2025) -->
+        <a href="https://onlinelibrary.wiley.com/doi/10.1111/sifp.70028" target="_blank" rel="noopener" class="writing-card">
+          <div class="writing-card-img">
+            <img src="https://images.unsplash.com/photo-1666886573553-6548db92db79?w=800&h=500&fit=crop&q=80" alt="Health workers reviewing data on tablet">
+            <div class="card-date-ribbon">2025</div>
+          </div>
+          <div class="writing-card-body">
+            <div class="art-venue">Studies in Family Planning &bull; 2025</div>
+            <div class="art-title">Moving Toward Better Measurement of Contraceptive Prevalence</div>
+            <div class="art-abstract">
+              Argues that contraceptive prevalence among unmarried women is most accurately measured using a four-week sexual recency window&mdash;a standard used by DHS and recently adopted by FP2030 and Track20.
+            </div>
+            <div class="art-cta">Read article <span>&rarr;</span></div>
+          </div>
+        </a>
+
+        <!-- 6. GHSP — Family Planning &amp; SDGs (Oct 2024) -->
+        <a href="https://www.ghspjournal.org/content/12/5/e2400127" target="_blank" rel="noopener" class="writing-card">
+          <div class="writing-card-img">
+            <img src="https://images.unsplash.com/photo-1774504798113-a03e2aa24789?w=800&h=500&fit=crop&q=80" alt="Women gathered in community setting">
+            <div class="card-date-ribbon">Oct 2024</div>
+          </div>
+          <div class="writing-card-body">
+            <div class="art-venue">Global Health: Science &amp; Practice &bull; Oct 2024</div>
+            <div class="art-title">Family Planning &amp; Progress Toward the SDGs: ICPD at 30</div>
+            <div class="art-abstract">
+              Commentary marking the 30th anniversary of ICPD. Presents USAID's "Pathways to Progress" framework linking family planning to all five SDG themes.
+            </div>
+            <div class="art-cta">Read article <span>&rarr;</span></div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Talks &amp; events index -->
+    <div class="talks-divider reveal">
+      <span class="talks-label">Talks, Panels &amp; Statements</span>
+      <span class="talks-rule"></span>
+    </div>
+
     <div class="articles-index reveal">
       <a href="https://webtv.un.org/en/asset/k11/k11yeugowi" target="_blank" rel="noopener" class="article-row">
         <div>
@@ -1227,7 +1438,15 @@ a:hover .art-cta { gap: 0.7rem; }
     </p>
 
     <div class="substack-grid">
-      <a href="https://apoorvajadhav.substack.com/p/week-15-pakistan" target="_blank" rel="noopener" class="sub-card reveal">
+      <a href="https://apoorvajadhav.substack.com/p/week-16-south-sudan" target="_blank" rel="noopener" class="sub-card reveal">
+        <div class="sub-card-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/f3d49147-c44a-4109-8e06-9c36588fd207_1600x1532.webp" alt="Map of South Sudan and surrounding region" onerror="this.parentElement.innerHTML='<div style=\'height:100%;background:var(--sage);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.35);font-family:Fraunces,serif;font-style:italic;font-size:1.3rem\'>South Sudan</div>'"></div>
+        <div class="sub-card-body">
+          <div class="sub-card-country">Mortality &bull; South Sudan</div>
+          <div class="sub-card-title">Where Survival Past Five Is Not Yet Guaranteed</div>
+          <div class="sub-card-snippet">One of the world's highest under-five mortality rates&mdash;children dying from preventable causes amid conflict, record flooding, and resources diverted away from health services.</div>
+        </div>
+      </a>
+      <a href="https://apoorvajadhav.substack.com/p/week-15-pakistan" target="_blank" rel="noopener" class="sub-card reveal reveal-d1">
         <div class="sub-card-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/b8e8f3db-b9b8-4511-90ec-a12fe4542548_1204x980.png" alt="Pakistan" onerror="this.parentElement.innerHTML='<div style=\'height:100%;background:var(--ink);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.35);font-family:Fraunces,serif;font-style:italic;font-size:1.3rem\'>Pakistan</div>'"></div>
         <div class="sub-card-body">
           <div class="sub-card-country">Group 3 &bull; Pakistan</div>
@@ -1235,7 +1454,7 @@ a:hover .art-cta { gap: 0.7rem; }
           <div class="sub-card-snippet">255 million people, a fertility transition that stalled, and a demographic dividend window that's half-closed. The companion piece to China and Iran.</div>
         </div>
       </a>
-      <a href="https://apoorvajadhav.substack.com/p/week-14-iran" target="_blank" rel="noopener" class="sub-card reveal reveal-d1">
+      <a href="https://apoorvajadhav.substack.com/p/week-14-iran" target="_blank" rel="noopener" class="sub-card reveal reveal-d2">
         <div class="sub-card-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/cd3b16da-ce95-47e4-a3a7-3180e1b9470a_1000x1000.webp" alt="Iran" onerror="this.parentElement.innerHTML='<div style=\'height:100%;background:var(--terra);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.35);font-family:Fraunces,serif;font-style:italic;font-size:1.3rem\'>Iran</div>'"></div>
         <div class="sub-card-body">
           <div class="sub-card-country">Group 2 &bull; Iran</div>
@@ -1243,20 +1462,12 @@ a:hover .art-cta { gap: 0.7rem; }
           <div class="sub-card-snippet">Iran's TFR fell 70% in 15 years, outpacing even China. A growing population is colliding with a country running out of water.</div>
         </div>
       </a>
-      <a href="https://apoorvajadhav.substack.com/p/week-13-china" target="_blank" rel="noopener" class="sub-card reveal reveal-d2">
+      <a href="https://apoorvajadhav.substack.com/p/week-13-china" target="_blank" rel="noopener" class="sub-card reveal reveal-d3">
         <div class="sub-card-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/26a46a42-4eaf-4455-9a41-ee57bf0f1fab_1200x1352.jpeg" alt="China" onerror="this.parentElement.innerHTML='<div style=\'height:100%;background:#6e5040;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.35);font-family:Fraunces,serif;font-style:italic;font-size:1.3rem\'>China</div>'"></div>
         <div class="sub-card-body">
           <div class="sub-card-country">Group 1 &bull; China</div>
           <div class="sub-card-title">The Country That Already Peaked</div>
           <div class="sub-card-snippet">Births in 2025 fell to 7.9 million, comparable to 1738. The 4-2-1 problem, leftover men, lying flat, and whether robots can substitute for people.</div>
-        </div>
-      </a>
-      <a href="https://apoorvajadhav.substack.com/p/week-12-somalia" target="_blank" rel="noopener" class="sub-card reveal reveal-d3">
-        <div class="sub-card-img"><img src="https://substack-post-media.s3.amazonaws.com/public/images/ba2573d2-46a9-412b-a20c-cb2b22c1ce8e_1600x1327.jpeg" alt="Somalia" onerror="this.parentElement.innerHTML='<div style=\'height:100%;background:var(--sage);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.35);font-family:Fraunces,serif;font-style:italic;font-size:1.3rem\'>Somalia</div>'"></div>
-        <div class="sub-card-body">
-          <div class="sub-card-country">Fertility &bull; Somalia</div>
-          <div class="sub-card-title">The World's Highest Fertility Rate</div>
-          <div class="sub-card-snippet">Somalia's TFR of 6.1 is the highest on earth. What does fertility mean in a country where statehood itself is a question?</div>
         </div>
       </a>
     </div>
@@ -1431,6 +1642,60 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (t) window.scrollTo({ top: t.offsetTop - 70, behavior: 'smooth' });
   });
 });
+
+// Writing carousel
+(function() {
+  const track = document.getElementById('writingTrack');
+  if (!track) return;
+  const cards = Array.from(track.querySelectorAll('.writing-card'));
+  if (!cards.length) return;
+  const prevBtn = document.querySelector('.carousel-btn[data-dir="prev"]');
+  const nextBtn = document.querySelector('.carousel-btn[data-dir="next"]');
+  const cCurrent = document.getElementById('cCurrent');
+  const cTotal = document.getElementById('cTotal');
+  const pad = n => String(n).padStart(2, '0');
+  if (cTotal) cTotal.textContent = pad(cards.length);
+
+  function activeIdx() {
+    const trackLeft = track.getBoundingClientRect().left;
+    let best = 0, bestD = Infinity;
+    cards.forEach((c, i) => {
+      const d = Math.abs(c.getBoundingClientRect().left - trackLeft);
+      if (d < bestD) { bestD = d; best = i; }
+    });
+    return best;
+  }
+
+  function update() {
+    const i = activeIdx();
+    if (cCurrent) cCurrent.textContent = pad(i + 1);
+    const atStart = track.scrollLeft <= 2;
+    const atEnd = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
+    if (prevBtn) prevBtn.disabled = atStart;
+    if (nextBtn) nextBtn.disabled = atEnd;
+  }
+
+  function goTo(i) {
+    i = Math.max(0, Math.min(cards.length - 1, i));
+    const card = cards[i];
+    const cardLeft = card.getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft;
+    track.scrollTo({ left: cardLeft, behavior: 'smooth' });
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', () => goTo(activeIdx() - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => goTo(activeIdx() + 1));
+
+  let t;
+  track.addEventListener('scroll', () => {
+    clearTimeout(t);
+    t = setTimeout(update, 60);
+  });
+  window.addEventListener('resize', () => {
+    clearTimeout(t);
+    t = setTimeout(update, 80);
+  });
+  update();
+})();
 </script>
 
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d63f2c966fdc4c51aeb777fdbcda6c8d"}'></script><!-- End Cloudflare Web Analytics -->
